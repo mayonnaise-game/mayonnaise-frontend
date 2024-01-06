@@ -2,8 +2,8 @@ import styled from "@emotion/styled";
 import { Box, Button, Snackbar, Grid } from "@mui/material";
 
 export const Container = styled(Box)`
-  width: 500px;
-  height: 60vh;
+  width: 100dvh;
+  height: 100dvh;
   margin: 100px auto;
   display: flex;
   flex-direction: column;
@@ -45,3 +45,12 @@ export const CopyUri = styled.p`
   border: 1px solid #606060;
   padding: 5px;
 `;
+
+export const InfoBox = styled(Box)`
+  display: flex;
+  flex-direction: row;
+`;
+
+export const InfoText = styled(Box)``;
+
+export const InfoImage = styled(Box)``;

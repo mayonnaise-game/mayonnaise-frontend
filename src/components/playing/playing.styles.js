@@ -25,6 +25,7 @@ export const PlayingContainer = styled(Box)`
   display: flex;
   margin-top: 120px;
   justify-content: space-evenly;
+  
 `;
 
 // Header
@@ -82,6 +83,10 @@ export const BarContainer = styled(Card)`
     margin-bottom: 5px;
     border-radius: 10px;
   }
+  & .MuiListItemText-secondary {
+    font-size: 24px;
+    color: #f07c62;
+  }
 `;
 
 export const ParticipantList = styled(List)`
@@ -89,9 +94,6 @@ export const ParticipantList = styled(List)`
   height: 590px;
   box-sizing: border-box;
   overflow: scroll;
-  & .MuiListItemText-secondary {
-    font-size: 24px;
-  }
 `;
 
 export const UserStatus = styled(ListItem)`
@@ -105,6 +107,8 @@ export const UserStatus = styled(ListItem)`
 // ImageNHint
 export const ImageNHintContainer = styled(Card)`
   width: 600px;
+  height: 700px;
+  overflow: scroll;
 `;
 export const QuizImage = styled(Image)`
   height: auto !important;
@@ -145,6 +149,7 @@ export const HintIngredient = styled(Card)`
 export const ChatContainer = styled(Card)`
   width: 300px;
   height: 700px;
+  box-sizing: border-box;
   display: flex;
   flex-direction: column;
   justify-content: space-between;

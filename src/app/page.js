@@ -16,7 +16,10 @@ import { useState } from "react";
 import Image from "next/image";
 import infoImage from "@/assets/info_img.png";
 import backgroundImg from "@/assets/background_img.png";
+import { useRouter } from "next/navigation";
 import localFont from "next/font/local";
+import { useSetRecoilState } from "recoil";
+import { LastMessageIndexState, UserUUIDState } from "@/utils/atoms";
 
 const jua = localFont({
   src: "./Jua-Regular.ttf",
@@ -26,21 +29,27 @@ const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
 export default function Home() {
   const [name, setName] = useState("");
+  const setLastMessageIndex = useSetRecoilState(LastMessageIndexState);
+  const setUserUUID = useSetRecoilState(UserUUIDState);
 
   const handleSetName = (e) => {
     setName(e.target.value);
   };
 
+  const router = useRouter();
   const handleStartGame = () => {
     if (name === "") {
       alert("이름을 입력하세요");
     } else {
       axios
         .post(`${BASE_URL}/login`, {
-          name: name, // 서버가 기대하는 필드 이름으로 변경
+          username: name, // 서버가 기대하는 필드 이름으로 변경
         })
         .then((res) => {
-          console.log(res);
+          console.log(res.data.data);
+          setUserUUID(res.data.data.userUuid);
+          setLastMessageIndex(res.data.data.lastMessageIndex);
+          router.push("/playing");
         })
         .catch((err) => {
           console.log(err);

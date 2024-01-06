@@ -9,7 +9,7 @@ import ImageNHint from "@/components/playing/ImageNHint";
 import { PlayingContainer } from "@/components/playing/playing.styles";
 
 export default function Playing() {
-  const [isDead, setIsDead] = useState(true); // 게임이 끝났는지 여부
+  
   return (
     <>
       <Header />
@@ -18,6 +18,6 @@ export default function Playing() {
         <ImageNHint />
         <Chat />
       </PlayingContainer>
-      <LeaderBoardModal isDead={isDead} />
+      
     </>)
 }

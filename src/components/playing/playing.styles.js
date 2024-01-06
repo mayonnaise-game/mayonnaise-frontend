@@ -9,6 +9,17 @@ import {
 } from "@mui/material";
 import Image from "next/image";
 // 전체 container
+
+export const BackgroundImg = styled(Image)`
+  background-color: #f6e6cd;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+`;
+
 export const PlayingContainer = styled(Box)`
   width: 100%;
   display: flex;
@@ -23,7 +34,7 @@ export const HeaderContainer = styled(Box)`
   z-index: 999;
   width: 100%;
   height: 90px;
-  background-color: #80bcbd;
+  background-color: #f6e6cd;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -45,11 +56,12 @@ export const HeaderHint = styled(Box)`
     letter-spacing: 2px;
     font-size: 16px;
     color: #2c2c2c;
+    font-weight: bold;
   }
   > .content {
     letter-spacing: 3px;
     font-size: 32px;
-    color: #eee;
+    color: black;
   }
 `;
 export const HeaderExitBtn = styled(IconButton)`
@@ -63,8 +75,9 @@ export const BarContainer = styled(Card)`
   padding: 10px;
   box-sizing: border-box;
   position: relative;
+  font-weight: bold;
   & li {
-    background-color: #f0f0ed;
+    background-color: #f6e6cd;
     padding: 5px;
     margin-bottom: 5px;
     border-radius: 10px;
@@ -86,6 +99,7 @@ export const UserStatus = styled(ListItem)`
   bottom: 10px;
   width: 230px;
   border: 1px solid #80bcbd;
+  background-color: #f6e6cd;
 `;
 
 // ImageNHint
@@ -135,7 +149,7 @@ export const ChatContainer = styled(Card)`
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  background-color: #aad9bb;
+  background-color: white;
 `;
 export const ChatBox = styled(Box)`
   width: 100%;

@@ -1,15 +1,15 @@
 import styled from "@emotion/styled";
 import { Box, Button, Snackbar } from "@mui/material";
+import backgroundImg from "@/assets/background_img.png";
+import Image from "next/image";
 
-export const BackgroundContainer = styled.div`
+export const BackgroundImg = styled(Image)`
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100vh;
-  background-image: url(${backgroundImg});
-  background-size: cover;
-  background-position: center;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  height: 100%;
+  z-index: -1;
 `;
 
 export const Container = styled(Box)`
@@ -30,46 +30,24 @@ export const Title = styled(Box)`
 export const LandingButton = styled.button`
   width: 100px;
   height: 30px;
-  font-weight: bold;
-  font-size: 15px;
+  font-size: 18px;
   color: black;
-  background-color: #d9d9d9;
-  font-family: jua;
-`;
-
-export const CopyUriBox = styled(Box)`
-  > div {
-    width: 500px;
-    background-color: #d9d9d9;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+  background-color: #d1b19a;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  &:hover {
+    background-color: #c1a18a;
   }
 `;
 
-export const CopyUriButton = styled(Button)`
-  width: 50px;
-  height: 30px;
-  background-color: #d9d9d9;
-`;
-
 export const CopySnackBar = styled(Snackbar)``;
-
-export const CopyUri = styled.p`
-  width: 400px;
-  margin: 10px;
-  background-color: white;
-  color: #606060;
-  border: 1px solid #606060;
-  padding: 5px;
-`;
 
 export const InfoBox = styled(Box)`
   display: flex;
   flex-direction: row;
   gap: 20px;
-  padding: 50px;
+  padding: 80px;
 `;
 
 export const InfoText = styled(Box)`
@@ -77,7 +55,8 @@ export const InfoText = styled(Box)`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5px > p {
+  font-weight: bold;
+  gap: 2px > p {
     font-weight: bold;
     text-align: center;
   }
@@ -88,6 +67,13 @@ export const InfoText = styled(Box)`
     align-items: center;
     justify-content: start;
     gap: 30px;
+    margin-top: 15px;
+  }
+  > p1 {
+    align-self: flex-start;
+    font-weight: normal;
+    font-size: 12px;
+    color: #606060;
   }
 `;
 
@@ -97,9 +83,14 @@ export const InfoImage = styled(Box)`
   justify-content: center;
   align-items: center;
   gap: 5px;
+  font-size: 15px;
 `;
 
 export const NameField = styled.input`
   width: 300px;
   height: 30px;
+  background-color: white;
+  color: #606060;
+  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25);
+  border: none;
 `;

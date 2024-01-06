@@ -9,26 +9,23 @@ import {
   InfoText,
   NameField,
   BackgroundContainer,
+  BackgroundImg,
 } from "@/components/home/home.styles";
 import axios from "axios";
 import { useState } from "react";
 import Image from "next/image";
 import infoImage from "@/assets/info_img.png";
 import backgroundImg from "@/assets/background_img.png";
+import localFont from "next/font/local";
 
+const jua = localFont({
+  src: "./Jua-Regular.ttf",
+  display: "swap",
+});
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
 export default function Home() {
   const [name, setName] = useState("");
-
-  const handleCopyClipBoard = async () => {
-    try {
-      await navigator.clipboard.writeText("복사uri어쩌고");
-      alert("Copied!");
-    } catch (e) {
-      alert("Failed to copy.");
-    }
-  };
 
   const handleSetName = (e) => {
     setName(e.target.value);
@@ -53,7 +50,7 @@ export default function Home() {
   return (
     <main>
       <Container>
-        <Title>
+        <Title className={`${jua.className}`}>
           마요네즈 <br /> :마성의 요리 네이밍 퀴즈
         </Title>
         <InfoBox>
@@ -67,7 +64,7 @@ export default function Home() {
             <p>정답: 저염된장으로 맛을 낸 황태해장국</p>
           </InfoImage>
           <InfoText>
-            <p>게임 방법</p>
+            게임 방법
             <ol>
               <li>
                 120초 안에 마성의 요리명을 맞혀 주세요! 정답을 맞히면 100점을
@@ -93,18 +90,22 @@ export default function Home() {
               ※주의: 이 게임은 실시간 게임으로, 최초 입장 시 남은 시간이 120초
               미만일 수 있습니다.
             </p1>
-
             <div>
               <NameField
-                placeholder="이름을 입력하세요"
+                placeholder="      이름을 입력하세요"
                 onChange={handleSetName}
               />
-              <LandingButton onClick={handleStartGame}>게임 시작</LandingButton>
+              <LandingButton
+                onClick={handleStartGame}
+                className={jua.className}
+              >
+                게임 시작
+              </LandingButton>
             </div>
           </InfoText>
         </InfoBox>
       </Container>
-      <Image
+      <BackgroundImg
         src={backgroundImg}
         alt="background_img"
         layout="fill"

@@ -16,6 +16,7 @@ import axios from "axios";
 import { useState } from "react";
 import Image from "next/image";
 import infoImage from "@/assets/info_img.png";
+import { useRouter } from "next/navigation";
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
@@ -35,6 +36,7 @@ export default function Home() {
     setName(e.target.value);
   };
 
+  const router = useRouter();
   const handleStartGame = () => {
     if (name === "") {
       alert("이름을 입력하세요");
@@ -45,6 +47,7 @@ export default function Home() {
         })
         .then((res) => {
           console.log(res);
+          router.push("/playing")
         })
         .catch((err) => {
           console.log(err);

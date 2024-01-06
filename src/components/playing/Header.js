@@ -7,6 +7,7 @@ import {
   HeaderHint,
   HeaderTime,
 } from "./playing.styles";
+import axios from "axios";
 
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
@@ -17,7 +18,7 @@ const [letterLen, setletterLen]=useState(0)
 
   const fetchGameData = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/leaderboard`,{ withCredentials: true });
+      const res = await axios.get(`${BASE_URL}/games/current`,{ withCredentials: true });
       setData(res.data);
       console.log(res.data);
       // 주어진 시작 시간

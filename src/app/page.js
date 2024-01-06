@@ -46,7 +46,7 @@ export default function Home() {
           username: name, // 서버가 기대하는 필드 이름으로 변경
         })
         .then((res) => {
-          console.log(res.data.data);
+          // console.log(res.data.data);
           setUserUUID(res.data.data.userUuid);
           setLastMessageIndex(res.data.data.lastMessageIndex);
           router.push("/playing");

@@ -1,8 +1,10 @@
+
 import { useState, useEffect } from "react";
-import Button from "@mui/material/Button";
 import Modal from "@mui/material/Modal";
 import Link from "next/link";
 import axios from "axios";
+import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
+
 
 import {
   ScoreList,
@@ -15,6 +17,7 @@ import {
   ButtonBox,
 } from "@/components/leaderboard/leaderboard.styles";
 import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
+import { HeaderExitBtn } from "../playing/playing.styles";
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
@@ -68,7 +71,10 @@ export default function LeaderBoardModal(props) {
 
   return (
     <div>
-      <Button onClick={handleOpen}>Open modal</Button>
+      <HeaderExitBtn onClick={handleOpen}>
+    <ExitToAppRoundedIcon />
+    </HeaderExitBtn>
+      
       <Modal
         open={open}
         onClose={handleClose}

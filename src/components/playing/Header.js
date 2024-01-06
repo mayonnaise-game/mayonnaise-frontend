@@ -1,10 +1,12 @@
+"use client";
+
+import { useState } from "react";
+import LeaderBoardModal from "../leaderboard/LeaderboardModal";
 import {
   HeaderContainer,
-  HeaderExitBtn,
   HeaderHint,
   HeaderTime,
 } from "./playing.styles";
-import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
 
 const data = {
   gameId: "f92bc115-1ec8-4b2a-b6f8-fd1a36e75f6d",
@@ -14,17 +16,28 @@ const data = {
 };
 
 export default function Header() {
+// 주어진 시작 시간
+const startTime = new Date(data.startTime);
+
+// 현재 시간
+const currentTime = new Date();
+
+// 차이 계산
+const timeDifference = currentTime - startTime;
+const secondsDifference = Math.floor(timeDifference / 1000);
+
+
   const letterLen = data.answerBlankData.split(" ").join("").length;
+
+  const [isDead, setIsDead] = useState(true); // 게임이 끝났는지 여부
   return (
     <HeaderContainer>
-      <HeaderTime>94s</HeaderTime>
+      <HeaderTime>{secondsDifference}s</HeaderTime>
       <HeaderHint>
         <div className="label">총 {letterLen}글자</div>
         <div className="content">{data.answerBlankData}</div>
       </HeaderHint>
-      <HeaderExitBtn>
-        <ExitToAppRoundedIcon />
-      </HeaderExitBtn>
+      <LeaderBoardModal isDead={isDead} />
     </HeaderContainer>
   );
 }

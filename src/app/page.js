@@ -8,25 +8,38 @@ import {
   CopyUriButton,
   CopyUri,
 } from "@/components/home/home.styles";
-import { TextField } from "@mui/material";
-
-const handleCopyClipBoard = async () => {
-  try {
-    await navigator.clipboard.writeText("복사uri어쩌고");
-    alert("Copied!");
-  } catch (e) {
-    alert("Failed to copy.");
-  }
-};
+import { TextField, FormControl } from "@mui/material";
 
 export default function Home() {
+  const [name, setName] = useState("");
+
+  const handleCopyClipBoard = async () => {
+    try {
+      await navigator.clipboard.writeText("복사uri어쩌고");
+      alert("Copied!");
+    } catch (e) {
+      alert("Failed to copy.");
+    }
+  };
+
+  const handleSetName = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleStartGame = () => {
+    if (name === "") {
+      alert("이름을 입력하세요");
+    } else {
+    }
+  };
+
   return (
     <main>
       <Container>
         <Title>
           마요네즈 <br /> 마성의 요리 네이밍 퀴즈
         </Title>
-        <TextField placeholder="이름을 입력하세요" />
+        <TextField placeholder="이름을 입력하세요" onChange={handleSetName} />
         <LandingButton variant="contained">게임 시작</LandingButton>
 
         <CopyUriBox>

@@ -226,7 +226,7 @@ export default function Chat() {
         <ChatInput
           value={inputValue}
           onChange={handleInputChange}
-          onKeyPress={handleInputKeyPress}
+          onKey={handleInputKeyPress}
         />
         <SubmitBtn onClick={handleButtonClick} onKey>
           <SendRoundedIcon />

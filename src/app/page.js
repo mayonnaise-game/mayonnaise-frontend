@@ -43,7 +43,7 @@ export default function Home() {
     } else {
       axios
         .post(`${BASE_URL}/login`, {
-          name: name, // 서버가 기대하는 필드 이름으로 변경
+          username: name, // 서버가 기대하는 필드 이름으로 변경
         })
         .then((res) => {
           console.log(res.data.data);

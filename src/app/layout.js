@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
+import RecoilRootProvider from "./RecoilRootProvider";
 
 export const inter = Inter({ subsets: ["latin"] });
 
@@ -15,10 +16,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={pretendard.className} style={{ margin: "0" }}>
-        {children}
-      </body>
-    </html>
+    <RecoilRootProvider>
+      <html lang="en">
+        <body className={pretendard.className} style={{ margin: "0" }}>
+          {children}
+        </body>
+      </html>
+    </RecoilRootProvider>
   );
 }

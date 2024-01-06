@@ -59,7 +59,7 @@ export default function LeaderBoardModal(props) {
     try {
       const res = await axios.get(`${BASE_URL}/leaderboard`);
       setLeaderBoard(res.data);
-      console.log(res);
+      // console.log(res);
     } catch (err) {
       console.log(err);
     }

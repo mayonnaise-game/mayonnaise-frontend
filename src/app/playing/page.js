@@ -9,17 +9,23 @@ import Chat from "@/components/playing/Chat";
 import Header from "@/components/playing/Header";
 import ImageNHint from "@/components/playing/ImageNHint";
 import { PlayingContainer } from "@/components/playing/playing.styles";
+import { UserUUIDState } from "@/utils/atoms";
+import { useRecoilValue } from "recoil";
 
 export default function Playing() {
+  const userUUID = useRecoilValue(UserUUIDState);
   const [data, setData] = useState({});
 
   const fetchGameData = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/games/current`, {
-        withCredentials: true,
-      });
+      const res = await axios.get(
+        `${BASE_URL}/games/current?userUuid=${userUUID}`,
+        {
+          withCredentials: true,
+        }
+      );
       setData(res.data.data);
-      console.log(res.data);
+      // console.log(res.data.data);
     } catch (err) {
       console.log(err);
     }
@@ -36,7 +42,7 @@ export default function Playing() {
     // 컴포넌트가 언마운트되면 clearInterval 호출
     return () => clearInterval(intervalId);
   }, []);
-  
+
   return (
     <>
       <Header data={data} />

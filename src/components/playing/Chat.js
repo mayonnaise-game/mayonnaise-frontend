@@ -84,6 +84,7 @@ export default function Chat() {
   const handleInputKeyPress = (e) => {
     if (e.key === "Enter") {
       PostChat();
+      setInputValue("");
     }
   };
   return (
@@ -106,7 +107,7 @@ export default function Chat() {
         <ChatInput
           value={inputValue}
           onChange={handleInputChange}
-          onKey={handleInputKeyPress}
+          onKeyDown={handleInputKeyPress}
         />
         <SubmitBtn onClick={handleButtonClick} onKey>
           <SendRoundedIcon />

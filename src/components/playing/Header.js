@@ -7,36 +7,23 @@ import {
   HeaderHint,
   HeaderTime,
 } from "./playing.styles";
-import axios from "axios";
 
 
-const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
-export default function Header() {
-const [data, setData] =useState({});
+export default function Header({data}) {
 const [seconds, setSeconds] =useState(0)
 const [letterLen, setletterLen]=useState(0)
 
-  const fetchGameData = async () => {
-    try {
-      const res = await axios.get(`${BASE_URL}/games/current`,{ withCredentials: true });
-      setData(res.data);
-      console.log(res.data);
+  useEffect(() => {
+    if (data.answerBlankData) {
       // 주어진 시작 시간
       const startTime = new Date(data.startTime);
       // 현재 시간
       const currentTime = new Date();
       // 차이 계산
-      setSeconds(Math.floor((currentTime - startTime) / 1000))
-      setletterLen(data.answerBlankData.split(" ").join("").length)
-    } catch (err) {
-      console.log(err);
+      setSeconds(Math.floor((currentTime - startTime) / 1000));
+      setletterLen(data.answerBlankData.split(" ").join("").length);
     }
-  };
-
-  useEffect(() => {
-    fetchGameData();
-    
-  }, []);
+  }, [data]);
 
   const [isDead, setIsDead] = useState(true); // 게임이 끝났는지 여부
 

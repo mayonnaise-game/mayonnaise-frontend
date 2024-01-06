@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import {
   ChatBox,
   ChatContainer,
@@ -8,6 +9,8 @@ import {
   SubmitBtn,
 } from "./playing.styles";
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
+
+const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
 const chats = [
   {
@@ -131,9 +134,65 @@ const chats = [
 ];
 
 export default function Chat() {
+  const chatBoxRef = useRef();
+
+  useEffect(() => {
+    // 채팅박스의 ref를 이용하여 스크롤을 가장 아래로 조정
+    chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+  }, [chats]);
+
+  const [inputValue, setInputValue] = useState("");
+
+  const PostChat = async () => {
+    try {
+      const res = await axios.post(
+        `${BASE_URL}/chat`,
+        {
+          userInput: inputValue,
+        },
+        {
+          withCredentials: true,
+        }
+      );
+      console.log(res.data); // 성공했을 때의 응답을 출력하거나 다른 처리를 할 수 있습니다.
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const [chats, setChats] = useState({});
+  const [Lastid, setLastid] = useState("");
+
+  const fetchChats = async () => {
+    try {
+      const res = await axios.get(
+        `${BASE_URL}/chats?lastMessageIndex=${Lastid}`,
+        {
+          withCredentials: true,
+        }
+      );
+      // setChats(res.data.data);
+      console.log(res.data.data);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleInputChange = (e) => {
+    setInputValue(e.target.value);
+  };
+
+  const handleButtonClick = () => {
+    PostChat();
+  };
+  const handleInputKeyPress = (e) => {
+    if (e.key === "Enter") {
+      PostChat();
+    }
+  };
   return (
     <ChatContainer>
-      <ChatBox id="ChatBox">
+      <ChatBox ref={chatBoxRef}>
         {chats.map((chat) => {
           if (chat.user.isCurrentUser) {
             return <MyComment>{chat.chatData}</MyComment>;
@@ -148,8 +207,12 @@ export default function Chat() {
         })}
       </ChatBox>
       <InputContainer>
-        <ChatInput />
-        <SubmitBtn>
+        <ChatInput
+          value={inputValue}
+          onChange={handleInputChange}
+          onKeyPress={handleInputKeyPress}
+        />
+        <SubmitBtn onClick={handleButtonClick} onKey>
           <SendRoundedIcon />
         </SubmitBtn>
       </InputContainer>

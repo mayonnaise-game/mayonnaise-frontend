@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import { Box, Button } from "@mui/material";
+import { Box, Button, Snackbar, Grid } from "@mui/material";
 
 export const Container = styled(Box)`
-  width: 300px;
-  height: 300px;
+  width: 500px;
+  height: 60vh;
   margin: 100px auto;
   display: flex;
   flex-direction: column;
@@ -12,6 +12,36 @@ export const Container = styled(Box)`
   border: 1px solid #222;
 `;
 
-export const Title = styled(Box)``;
+export const Title = styled(Box)`
+  text-align: center;
+`;
 
 export const LandingButton = styled(Button)``;
+
+export const CopyUriBox = styled(Box)`
+  > div {
+    padding: 10px;
+    width: 500px;
+    background-color: #d9d9d9;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+`;
+
+export const CopyUriButton = styled(Button)`
+  width: 50px;
+  height: 30px;
+`;
+
+export const CopySnackBar = styled(Snackbar)``;
+
+export const CopyUri = styled.p`
+  width: 400px;
+  margin: 10px;
+  background-color: white;
+  color: #606060;
+  border: 1px solid #606060;
+  padding: 5px;
+`;

@@ -1,11 +1,9 @@
-
 import { useState, useEffect } from "react";
 import Modal from "@mui/material/Modal";
 import Link from "next/link";
 import axios from "axios";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
-
-
+import backgroundImg from "@/assets/background_img.png";
 import {
   ScoreList,
   Title,
@@ -15,23 +13,12 @@ import {
   BackButton,
   MessageAndButtonBox,
   ButtonBox,
+  BackgroundImg,
 } from "@/components/leaderboard/leaderboard.styles";
 import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
 import { HeaderExitBtn } from "../playing/playing.styles";
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
-
-const style = {
-  position: "absolute",
-  top: "50%",
-  left: "50%",
-  transform: "translate(-50%, -50%)",
-  width: 400,
-  bgcolor: "background.paper",
-  border: "2px solid #000",
-  boxShadow: 24,
-  p: 4,
-};
 
 const data = [
   {
@@ -72,9 +59,9 @@ export default function LeaderBoardModal(props) {
   return (
     <div>
       <HeaderExitBtn onClick={handleOpen}>
-    <ExitToAppRoundedIcon />
-    </HeaderExitBtn>
-      
+        <ExitToAppRoundedIcon />
+      </HeaderExitBtn>
+
       <Modal
         open={open}
         onClose={handleClose}
@@ -96,14 +83,19 @@ export default function LeaderBoardModal(props) {
           <ScoreList>
             {data.map((item, index) => (
               <Userscorebox key={index}>
-                <p>{item.username}</p>
+                <div>
+                  <p>{index + 1}등</p>
+                  <p>{item.username}</p>
+                </div>
                 <p>{item.score}</p>
               </Userscorebox>
             ))}
           </ScoreList>
           {props.isDead ? (
             <MessageAndButtonBox>
-              <p>Game Over! 당신의 하트가 전부 없어졌습니다</p>
+              <p>
+                Game Over! <br /> 당신의 하트가 전부 없어졌습니다
+              </p>
               <Link href="/">
                 <HomeButton variant="contained" onClick={handleClose}>
                   나가기
@@ -128,6 +120,13 @@ export default function LeaderBoardModal(props) {
               </ButtonBox>
             </MessageAndButtonBox>
           )}
+          <BackgroundImg
+            src={backgroundImg}
+            alt="background_img"
+            layout="fill"
+            objectFit="cover"
+            objectPosition="center"
+          />
         </Container>
       </Modal>
     </div>

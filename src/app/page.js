@@ -16,7 +16,6 @@ import axios from "axios";
 import { useState } from "react";
 import Image from "next/image";
 import infoImage from "@/assets/info_img.png";
-import backImage from "@/assets/Theme.png";
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
@@ -56,7 +55,7 @@ export default function Home() {
     <main>
       <Container>
         <Title>
-          마요네즈 <br /> 마성의 요리 네이밍 퀴즈
+          마요네즈 <br /> :마성의 요리 네이밍 퀴즈
         </Title>
         <InfoBox>
           <InfoImage>
@@ -69,6 +68,7 @@ export default function Home() {
             <p>정답: 저염된장으로 맛을 낸 황태해장국</p>
           </InfoImage>
           <InfoText>
+            <p>게임 방법</p>
             1. 120초 안에 마성의 요리명을 맞혀 주세요! 정답을 맞히면 100점을
             획득하고 다음 문제로 넘어갑니다. <br />
             2. 40초, 80초가 경과해도 정답자가 없다면 힌트가 1개씩 노출됩니다.

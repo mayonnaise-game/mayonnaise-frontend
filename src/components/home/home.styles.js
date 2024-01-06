@@ -1,19 +1,21 @@
 import styled from "@emotion/styled";
 import { Box, Button, Snackbar, Grid } from "@mui/material";
+import backImage from "@/assets/Theme.png";
 
 export const Container = styled(Box)`
-  width: 100dvh;
-  height: 100dvh;
-  margin: 100px auto;
+  width: 1200px;
+  height: 800px;
+  margin: 10px auto;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  border: 1px solid #222;
 `;
 
 export const Title = styled(Box)`
   text-align: center;
+  font-weight: bold;
+  font-size: 3rem;
 `;
 
 export const LandingButton = styled(Button)``;
@@ -49,8 +51,20 @@ export const CopyUri = styled.p`
 export const InfoBox = styled(Box)`
   display: flex;
   flex-direction: row;
+  gap: 50px;
+  padding: 20px;
 `;
 
-export const InfoText = styled(Box)``;
+export const InfoText = styled(Box)`
+  width: 500px;
+  > p {
+    font-weight: bold;
+    text-align: center;
+  }
+`;
 
-export const InfoImage = styled(Box)``;
+export const InfoImage = styled(Box)`
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+`;

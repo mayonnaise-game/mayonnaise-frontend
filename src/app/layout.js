@@ -1,10 +1,10 @@
-import { Margin } from "@mui/icons-material";
 import { Inter } from "next/font/google";
 import localFont from "next/font/local";
 
-const inter = Inter({ subsets: ["latin"] });
-const myFont = localFont({
-  src: "./Jua-Regular.ttf",
+export const inter = Inter({ subsets: ["latin"] });
+
+const pretendard = localFont({
+  src: "./PretendardVariable.ttf",
   display: "swap",
 });
 
@@ -16,7 +16,7 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={myFont.className} style={{ margin: "0" }}>
+      <body className={pretendard.className} style={{ margin: "0" }}>
         {children}
       </body>
     </html>

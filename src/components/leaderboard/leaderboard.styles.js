@@ -78,6 +78,7 @@ export const HomeButton = styled(Button)`
 export const BackButton = styled(Button)`
   width: 100px;
   height: 30px;
+  background-color: #d6c7b4;
   &:hover {
     background-color: #f6e6cd;
   }

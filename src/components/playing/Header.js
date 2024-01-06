@@ -2,16 +2,11 @@
 
 import { useEffect, useState } from "react";
 import LeaderBoardModal from "../leaderboard/LeaderboardModal";
-import {
-  HeaderContainer,
-  HeaderHint,
-  HeaderTime,
-} from "./playing.styles";
+import { HeaderContainer, HeaderHint, HeaderTime } from "./playing.styles";
 
-
-export default function Header({data}) {
-const [seconds, setSeconds] =useState(0)
-const [letterLen, setletterLen]=useState(0)
+export default function Header({ data }) {
+  const [seconds, setSeconds] = useState(0);
+  const [letterLen, setletterLen] = useState(0);
 
   useEffect(() => {
     if (data.answerBlankData) {
@@ -25,9 +20,7 @@ const [letterLen, setletterLen]=useState(0)
     }
   }, [data]);
 
-  const [isDead, setIsDead] = useState(true); // 게임이 끝났는지 여부
-
-
+  const [isDead, setIsDead] = useState(false); // 게임이 끝났는지 여부
 
   return (
     <HeaderContainer>

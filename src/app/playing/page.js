@@ -8,7 +8,9 @@ import Bar from "@/components/playing/Bar";
 import Chat from "@/components/playing/Chat";
 import Header from "@/components/playing/Header";
 import ImageNHint from "@/components/playing/ImageNHint";
-import { PlayingContainer, BackgroundImg,
+import {
+  PlayingContainer,
+  BackgroundImg,
 } from "@/components/playing/playing.styles";
 import backgroundImg from "@/assets/background_img.png";
 import { UserUUIDState } from "@/utils/atoms";

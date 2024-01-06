@@ -92,10 +92,10 @@ export default function Chat() {
       <ChatBox ref={chatBoxRef}>
         {chats?.map((chat) => {
           if (chat.user.isCurrentUser) {
-            return <MyComment>{chat.chatData}</MyComment>;
+            return <MyComment key={chat.index}>{chat.chatData}</MyComment>;
           } else {
             return (
-              <Comments>
+              <Comments key={chat.index}>
                 <div className="name">{chat.user.username}</div>
                 <div className="content">{chat.chatData}</div>
               </Comments>

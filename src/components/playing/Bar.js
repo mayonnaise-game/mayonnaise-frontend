@@ -46,7 +46,7 @@ export default function Bar() {
         }
       );
       setUsers(res.data.data);
-      console.log(res.data.data);
+      // console.log(res.data.data);
     } catch (err) {
       console.log(err);
     }
@@ -58,7 +58,7 @@ export default function Bar() {
         withCredentials: true,
       });
       setUser(res.data.data);
-      console.log(res.data.data);
+      // console.log(res.data.data);
     } catch (err) {
       console.log(err);
     }
@@ -104,7 +104,7 @@ export default function Bar() {
                 </Avatar>
               </ListItemAvatar>
               <ListItemText
-                primary={user?.name}
+                primary={user?.username}
                 secondary={"♥︎".repeat(user?.heart)}
               />
             </ListItem>
@@ -131,10 +131,7 @@ export default function Bar() {
             {user?.currentRank < 3 ? (
               <MilitaryTechRoundedIcon />
             ) : (
-              <ListItemText
-                primary={user?.currentRank + "등"}
-                sx={{ textAlign: "center" }}
-              />
+              <PersonRoundedIcon />
             )}
           </Avatar>
         </ListItemAvatar>

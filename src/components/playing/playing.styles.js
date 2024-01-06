@@ -121,7 +121,7 @@ export const HintList = styled(Card)`
 export const HintTitle = styled.div``;
 export const Hint1Container = styled(Card)`
   width: 100%;
-  height: 220px;
+  height: auto;
   box-sizing: border-box;
   padding: 10px;
 `;

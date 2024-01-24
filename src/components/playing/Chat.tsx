@@ -11,16 +11,26 @@ import {
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import axios from "axios";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { LastMessageIndexState, UserUUIDState } from "@/utils/atoms";
+import { LastMessageIndexState, UserUUIDState } from "@/src/utils/atoms";
+
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
+
+interface ChatData {
+  index: number;
+  chatData: string;
+  user: {
+    isCurrentUser: boolean;
+    username: string;
+  };
+}
 
 export default function Chat() {
   const userUUID = useRecoilValue(UserUUIDState);
 
-  const chatBoxRef = useRef();
+  const chatBoxRef = useRef<HTMLDivElement>(null);
 
   const [inputValue, setInputValue] = useState("");
-  const [chats, setChats] = useState([]);
+  const [chats, setChats] = useState<ChatData[]>([]);
   const [Lastid, setLastid] = useRecoilState(LastMessageIndexState);
 
   const PostChat = async () => {
@@ -52,7 +62,7 @@ export default function Chat() {
       setChats(res.data.data);
       console.log(res.data.data);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -70,10 +80,12 @@ export default function Chat() {
 
   useEffect(() => {
     // 채팅박스의 ref를 이용하여 스크롤을 가장 아래로 조정
-    chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+    if (chatBoxRef.current) {
+      chatBoxRef.current.scrollTop = chatBoxRef.current.scrollHeight;
+    }
   }, [chats]);
 
-  const handleInputChange = (e) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInputValue(e.target.value);
   };
 
@@ -81,12 +93,14 @@ export default function Chat() {
     PostChat();
     setInputValue("");
   };
-  const handleInputKeyPress = (e) => {
+
+  const handleInputKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       PostChat();
       setInputValue("");
     }
   };
+
   return (
     <ChatContainer>
       <ChatBox ref={chatBoxRef}>
@@ -109,7 +123,7 @@ export default function Chat() {
           onChange={handleInputChange}
           onKeyDown={handleInputKeyPress}
         />
-        <SubmitBtn onClick={handleButtonClick} onKey>
+        <SubmitBtn onClick={handleButtonClick}>
           <SendRoundedIcon />
         </SubmitBtn>
       </InputContainer>

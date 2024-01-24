@@ -1,5 +1,8 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
+import axios from "axios";
 import {
   Title,
   LandingButton,
@@ -8,23 +11,14 @@ import {
   InfoImage,
   InfoText,
   NameField,
-  BackgroundContainer,
   BackgroundImg,
-} from "@/components/home/home.styles";
-import axios from "axios";
-import { useState } from "react";
-import Image from "next/image";
-import infoImage from "@/assets/info_img.png";
-import backgroundImg from "@/assets/background_img.png";
-import { useRouter } from "next/navigation";
-import localFont from "next/font/local";
+} from "@/src/components/home/home.styles";
+import infoImage from "@/src/assets/info_img.png";
+import backgroundImg from "@/src/assets/background_img.png";
+import { useRouter } from "next/router";
 import { useSetRecoilState } from "recoil";
-import { LastMessageIndexState, UserUUIDState } from "@/utils/atoms";
+import { LastMessageIndexState, UserUUIDState } from "@/src/utils/atoms";
 
-const jua = localFont({
-  src: "./Jua-Regular.ttf",
-  display: "swap",
-});
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
 export default function Home() {
@@ -32,7 +26,7 @@ export default function Home() {
   const setLastMessageIndex = useSetRecoilState(LastMessageIndexState);
   const setUserUUID = useSetRecoilState(UserUUIDState);
 
-  const handleSetName = (e) => {
+  const handleSetName = (e: React.ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
 
@@ -43,33 +37,26 @@ export default function Home() {
     } else {
       axios
         .post(`${BASE_URL}/login`, {
-          username: name, // 서버가 기대하는 필드 이름으로 변경
+          username: name,
         })
         .then((res) => {
-          // console.log(res.data.data);
           setUserUUID(res.data.data.userUuid);
           setLastMessageIndex(res.data.data.lastMessageIndex);
           router.push("/playing");
         })
         .catch((err) => {
-          console.log(err);
+          console.error(err);
         });
     }
   };
+
   return (
     <main>
       <Container>
-        <Title className={`${jua.className}`}>
-          마요네즈 <br /> :마성의 요리 네이밍 퀴즈
-        </Title>
+        <Title>마요네즈 :마성의 요리 네이밍 퀴즈</Title>
         <InfoBox>
           <InfoImage>
-            <Image
-              src={infoImage}
-              alt="info_img"
-              width={250}
-              height={200}
-            ></Image>
+            <Image src={infoImage} alt="info_img" width={250} height={200} />
             <p>정답: 저염된장으로 맛을 낸 황태해장국</p>
           </InfoImage>
           <InfoText>
@@ -95,21 +82,16 @@ export default function Home() {
                 보세요!
               </li>
             </ol>
-            <p1>
+            <p>
               ※주의: 이 게임은 실시간 게임으로, 최초 입장 시 남은 시간이 120초
               미만일 수 있습니다.
-            </p1>
+            </p>
             <div>
               <NameField
                 placeholder="      이름을 입력하세요"
                 onChange={handleSetName}
               />
-              <LandingButton
-                onClick={handleStartGame}
-                className={jua.className}
-              >
-                게임 시작
-              </LandingButton>
+              <LandingButton onClick={handleStartGame}>게임 시작</LandingButton>
             </div>
           </InfoText>
         </InfoBox>

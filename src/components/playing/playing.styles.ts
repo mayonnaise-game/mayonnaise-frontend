@@ -25,7 +25,6 @@ export const PlayingContainer = styled(Box)`
   display: flex;
   margin-top: 120px;
   justify-content: space-evenly;
-  
 `;
 
 // Header
@@ -110,9 +109,14 @@ export const ImageNHintContainer = styled(Card)`
   height: 700px;
   overflow: scroll;
 `;
-export const QuizImage = styled(Image)`
+
+interface QuizImageProps {
+  readonly src?: string;
+}
+export const QuizImage = styled(Image)<QuizImageProps>`
   height: auto !important;
 `;
+
 export const HintList = styled(Card)`
   display: flex;
   flex-direction: column;

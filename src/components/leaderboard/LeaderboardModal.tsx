@@ -3,7 +3,7 @@ import Modal from "@mui/material/Modal";
 import Link from "next/link";
 import axios from "axios";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
-import backgroundImg from "@/assets/background_img.png";
+import backgroundImg from "@/src/assets/background_img.png";
 import {
   ScoreList,
   Title,

@@ -4,19 +4,27 @@ const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Bar from "@/components/playing/Bar";
-import Chat from "@/components/playing/Chat";
-import Header from "@/components/playing/Header";
-import ImageNHint from "@/components/playing/ImageNHint";
-import { PlayingContainer, BackgroundImg,
-} from "@/components/playing/playing.styles";
-import backgroundImg from "@/assets/background_img.png";
-import { UserUUIDState } from "@/utils/atoms";
+import Bar from "@/src/components/playing/Bar";
+import Chat from "@/src/components/playing/Chat";
+import Header from "@/src/components/playing/Header";
+import ImageNHint from "@/src/components/playing/ImageNHint";
+import {
+  PlayingContainer,
+  BackgroundImg,
+} from "@/src/components/playing/playing.styles";
+import backgroundImg from "@/src/assets/background_img.png";
+import { UserUUIDState } from "@/src/utils/atoms";
 import { useRecoilValue } from "recoil";
 
 export default function Playing() {
   const userUUID = useRecoilValue(UserUUIDState);
-  const [data, setData] = useState({});
+  const [data, setData] = useState({
+    answerBlankData: "",
+    startTime: "",
+    mainImageUrl: "",
+    hint1: [],
+    hint2: "",
+  });
 
   const fetchGameData = async () => {
     try {
@@ -47,10 +55,14 @@ export default function Playing() {
 
   return (
     <>
-      <Header data={data} />
+      <Header answerBlankData={data.answerBlankData} start={data.startTime} />
       <PlayingContainer>
         <Bar />
-        <ImageNHint data={data} />
+        <ImageNHint
+          mainImageUrl={data?.mainImageUrl}
+          hint1={data?.hint1}
+          hint2={data?.hint2}
+        />
         <Chat />
         <BackgroundImg
           src={backgroundImg}

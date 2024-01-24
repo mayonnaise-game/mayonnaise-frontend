@@ -3,7 +3,7 @@ import Modal from "@mui/material/Modal";
 import Link from "next/link";
 import axios from "axios";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
-import backgroundImg from "@/assets/background_img.png";
+import backgroundImg from "@/src/assets/background_img.png";
 import {
   ScoreList,
   Title,
@@ -14,17 +14,22 @@ import {
   MessageAndButtonBox,
   ButtonBox,
   BackgroundImg,
-} from "@/components/leaderboard/leaderboard.styles";
+} from "@/src/components/leaderboard/leaderboard.styles";
 import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
 import { HeaderExitBtn } from "../playing/playing.styles";
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
-const data = [
+interface LeaderBoardData {
+  username: string;
+  score: number;
+}
+
+const data: LeaderBoardData[] = [
   {
     username: "홍권",
     score: 15000,
-  }, //1등
+  },
   {
     username: "홍길동",
     score: 10000,
@@ -33,22 +38,25 @@ const data = [
     username: "홍길순",
     score: 5000,
   },
-  // 2등, 3등, ..., 최대 100등
 ];
 
-export default function LeaderBoardModal(props) {
-  const [leaderBoard, setLeaderBoard] = useState([]); // [{username: "홍길동", score: 10000}, ...
+interface LeaderBoardModalProps {
+  isDead: boolean;
+}
+
+export default function LeaderBoardModal({ isDead }: LeaderBoardModalProps) {
+  const [leaderBoard, setLeaderBoard] = useState<LeaderBoardData[]>([]);
   const [open, setOpen] = useState(false);
+
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
 
   const fetchLeaderBoard = async () => {
     try {
-      const res = await axios.get(`${BASE_URL}/leaderboard`);
+      const res = await axios.get<LeaderBoardData[]>(`${BASE_URL}/leaderboard`);
       setLeaderBoard(res.data);
-      // console.log(res);
     } catch (err) {
-      console.log(err);
+      console.error(err);
     }
   };
 
@@ -68,9 +76,8 @@ export default function LeaderBoardModal(props) {
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
         BackdropProps={{
-          style: { backgroundColor: "black", opacity: "0.2" }, // 투명한 배경으로 설정
+          style: { backgroundColor: "black", opacity: "0.2" },
           onClick: (e) => {
-            // 모달이 닫히지 않도록 이벤트 전파 막기
             e.stopPropagation();
           },
         }}
@@ -81,7 +88,7 @@ export default function LeaderBoardModal(props) {
             명예의 전당
           </Title>
           <ScoreList>
-            {data.map((item, index) => (
+            {leaderBoard.map((item, index) => (
               <Userscorebox key={index}>
                 <div>
                   <p>{index + 1}등</p>
@@ -91,7 +98,7 @@ export default function LeaderBoardModal(props) {
               </Userscorebox>
             ))}
           </ScoreList>
-          {props.isDead ? (
+          {isDead ? (
             <MessageAndButtonBox>
               <p>
                 Game Over! <br /> 당신의 하트가 전부 없어졌습니다

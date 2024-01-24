@@ -3,6 +3,7 @@ import { Box, Button, Snackbar } from "@mui/material";
 import backgroundImg from "@/src/assets/background_img.png";
 import Image from "next/image";
 
+
 export const BackgroundImg = styled(Image)`
   position: absolute;
   top: 0;

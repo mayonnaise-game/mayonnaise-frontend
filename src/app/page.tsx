@@ -16,8 +16,10 @@ import GameStartBtn from "../components/home/GameStartBtn";
 import infoImage from "@/public/info_img.png"
 import backgroundImg from "@/public/background_img.png";
 
+
 import { useSetRecoilState } from "recoil";
 import { LastMessageIndexState, UserUUIDState } from "@/src/utils/atoms";
+import { pretendard } from "./fonts/font";
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 

@@ -1,19 +1,5 @@
-import React, { ReactNode } from "react";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
 import RecoilRootProvider from "./RecoilRootProvider";
-
-const inter = Inter({ subsets: ["latin"] });
-
-const pretendard = localFont({
-  src: "./PretendardVariable.ttf",
-  display: "swap",
-});
-
-const jua = localFont({
-  src: "./Jua-Regular.ttf",
-  display: "swap",
-});
+import { jua } from "@/fonts";
 
 export const metadata = {
   title: "Create Next App",
@@ -21,14 +7,14 @@ export const metadata = {
 };
 
 interface RootLayoutProps {
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <RecoilRootProvider>
       <html lang="en">
-        <body className={jua.className} style={{ margin: "0" }}>
+        <body className = {jua.className} style={{ margin: "0" }}>
           {children}
         </body>
       </html>

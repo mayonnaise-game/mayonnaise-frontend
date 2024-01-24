@@ -1,11 +1,8 @@
-"use client";
-
-import { useState } from "react";
+import { useState, ChangeEvent } from "react";
 import Image from "next/image";
 import axios from "axios";
 import {
   Title,
-  LandingButton,
   Container,
   InfoBox,
   InfoImage,
@@ -13,9 +10,10 @@ import {
   NameField,
   BackgroundImg,
 } from "@/src/components/home/home.styles";
+import GameStartBtn from "../components/home/GameStartBtn";
 import infoImage from "@/src/assets/info_img.png";
 import backgroundImg from "@/src/assets/background_img.png";
-import { useRouter } from "next/router";
+
 import { useSetRecoilState } from "recoil";
 import { LastMessageIndexState, UserUUIDState } from "@/src/utils/atoms";
 
@@ -26,27 +24,24 @@ export default function Home() {
   const setLastMessageIndex = useSetRecoilState(LastMessageIndexState);
   const setUserUUID = useSetRecoilState(UserUUIDState);
 
-  const handleSetName = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleSetName = (e: ChangeEvent<HTMLInputElement>) => {
     setName(e.target.value);
   };
 
-  const router = useRouter();
-  const handleStartGame = () => {
+  const handleStartGame = async () => {
     if (name === "") {
       alert("이름을 입력하세요");
     } else {
-      axios
-        .post(`${BASE_URL}/login`, {
+      try {
+        const res = await axios.post(`${BASE_URL}/login`, {
           username: name,
-        })
-        .then((res) => {
-          setUserUUID(res.data.data.userUuid);
-          setLastMessageIndex(res.data.data.lastMessageIndex);
-          router.push("/playing");
-        })
-        .catch((err) => {
-          console.error(err);
         });
+
+        setUserUUID(res.data.data.userUuid);
+        setLastMessageIndex(res.data.data.lastMessageIndex);
+      } catch (err) {
+        console.error(err);
+      }
     }
   };
 
@@ -91,7 +86,7 @@ export default function Home() {
                 placeholder="      이름을 입력하세요"
                 onChange={handleSetName}
               />
-              <LandingButton onClick={handleStartGame}>게임 시작</LandingButton>
+              <GameStartBtn handleStartGame={handleStartGame} />
             </div>
           </InfoText>
         </InfoBox>

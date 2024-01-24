@@ -13,8 +13,8 @@ import {
   BackgroundImg,
 } from "@/src/components/home/home.styles";
 import GameStartBtn from "../components/home/GameStartBtn";
-import infoImage from "@/src/assets/info_img.png";
-import backgroundImg from "@/src/assets/background_img.png";
+import infoImage from "@/public/info_img.png"
+import backgroundImg from "@/public/background_img.png";
 
 import { useSetRecoilState } from "recoil";
 import { LastMessageIndexState, UserUUIDState } from "@/src/utils/atoms";

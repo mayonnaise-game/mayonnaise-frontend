@@ -12,7 +12,7 @@ import {
   PlayingContainer,
   BackgroundImg,
 } from "@/src/components/playing/playing.styles";
-import backgroundImg from "@/src/assets/background_img.png";
+import backgroundImg from "@/public/background_img.png";
 import { UserUUIDState } from "@/src/utils/atoms";
 import { useRecoilValue } from "recoil";
 

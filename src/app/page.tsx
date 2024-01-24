@@ -15,11 +15,9 @@ import {
 import GameStartBtn from "../components/home/GameStartBtn";
 import infoImage from "@/public/info_img.png"
 import backgroundImg from "@/public/background_img.png";
-
-
 import { useSetRecoilState } from "recoil";
 import { LastMessageIndexState, UserUUIDState } from "@/src/utils/atoms";
-import { pretendard } from "./fonts/font";
+import { jua, pretendard } from "./fonts/font";
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
@@ -40,7 +38,6 @@ export default function Home() {
         const res = await axios.post(`${BASE_URL}/login`, {
           username: name,
         });
-
         setUserUUID(res.data.data.userUuid);
         setLastMessageIndex(res.data.data.lastMessageIndex);
       } catch (err) {
@@ -50,9 +47,9 @@ export default function Home() {
   };
 
   return (
-    <main>
+    <main className={pretendard.className}>
       <Container>
-        <Title>마요네즈 :마성의 요리 네이밍 퀴즈</Title>
+        <Title className={jua.className}>마요네즈 :마성의 요리 네이밍 퀴즈</Title>
         <InfoBox>
           <InfoImage>
             <Image src={infoImage} alt="info_img" width={250} height={200} />

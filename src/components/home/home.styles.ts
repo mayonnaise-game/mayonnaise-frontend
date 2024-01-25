@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "@emotion/styled";
-import { Box, Snackbar, Button } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import Image from "next/image";
 
 export const BackgroundImg = styled(Image)`
@@ -14,8 +14,8 @@ export const BackgroundImg = styled(Image)`
 `;
 
 export const Container = styled(Box)`
-  width: 1300px;
-  height: 480px;
+  width: 100vh;
+  height: 100vh;
   margin: 20px auto;
   display: flex;
   flex-direction: column;
@@ -26,21 +26,6 @@ export const Title = styled(Box)`
   text-align: center;
   font-weight: bold;
   font-size: 30px;
-`;
-
-export const LandingButton = styled(Button)`
-  margin: 10px;
-  width: 100px;
-  height: 30px;
-  font-size: 18px;
-  color: black;
-  background-color: #d1b19a;
-  border: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  cursor: pointer;
-  &:hover {
-    background-color: #c1a18a;
-  }
 `;
 
 export const InfoBox = styled(Box)`
@@ -84,6 +69,21 @@ export const InfoImage = styled(Box)`
   align-items: center;
   gap: 5px;
   font-size: 15px;
+`;
+
+export const LandingButton = styled(Button)`
+  margin: 10px;
+  width: 100px;
+  height: 30px;
+  font-size: 18px;
+  color: black;
+  background-color: #d1b19a;
+  border: none;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  &:hover {
+    background-color: #c1a18a;
+  }
 `;
 
 export const NameField = styled.input`

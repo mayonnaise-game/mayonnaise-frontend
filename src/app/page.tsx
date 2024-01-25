@@ -1,55 +1,25 @@
-"use client";
-
-import { useState, ChangeEvent } from "react";
 import Image from "next/image";
-import axios from "axios";
 import {
   Title,
   Container,
   InfoBox,
   InfoImage,
   InfoText,
-  NameField,
   BackgroundImg,
 } from "@/src/components/home/home.styles";
 import GameStartBtn from "../components/home/GameStartBtn";
-import infoImage from "@/public/info_img.png"
+import infoImage from "@/public/info_img.png";
 import backgroundImg from "@/public/background_img.png";
-import { useSetRecoilState } from "recoil";
-import { LastMessageIndexState, UserUUIDState } from "@/src/utils/atoms";
+
 import { jua, pretendard } from "./fonts/font";
 
-const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
-
 export default function Home() {
-  const [name, setName] = useState("");
-  const setLastMessageIndex = useSetRecoilState(LastMessageIndexState);
-  const setUserUUID = useSetRecoilState(UserUUIDState);
-
-  const handleSetName = (e: ChangeEvent<HTMLInputElement>) => {
-    setName(e.target.value);
-  };
-
-  const handleStartGame = async () => {
-    if (name === "") {
-      alert("이름을 입력하세요");
-    } else {
-      try {
-        const res = await axios.post(`${BASE_URL}/login`, {
-          username: name,
-        });
-        setUserUUID(res.data.data.userUuid);
-        setLastMessageIndex(res.data.data.lastMessageIndex);
-      } catch (err) {
-        console.error(err);
-      }
-    }
-  };
-
   return (
     <main className={pretendard.className}>
       <Container>
-        <Title className={jua.className}>마요네즈 :마성의 요리 네이밍 퀴즈</Title>
+        <Title className={jua.className}>
+          마요네즈 :마성의 요리 네이밍 퀴즈
+        </Title>
         <InfoBox>
           <InfoImage>
             <Image src={infoImage} alt="info_img" width={250} height={200} />
@@ -83,11 +53,7 @@ export default function Home() {
               미만일 수 있습니다.
             </p>
             <div>
-              <NameField
-                placeholder="      이름을 입력하세요"
-                onChange={handleSetName}
-              />
-              <GameStartBtn handleStartGame={handleStartGame} />
+              <GameStartBtn />
             </div>
           </InfoText>
         </InfoBox>

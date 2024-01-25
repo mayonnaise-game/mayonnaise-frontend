@@ -12,7 +12,7 @@ import {
   PlayingContainer,
   BackgroundImg,
 } from "@/src/components/playing/playing.styles";
-import backgroundImg from "@/src/assets/background_img.png";
+import backgroundImg from "@/public/background_img.png";
 import { UserUUIDState } from "@/src/utils/atoms";
 import { useRecoilValue } from "recoil";
 
@@ -64,13 +64,7 @@ export default function Playing() {
           hint2={data?.hint2}
         />
         <Chat />
-        <BackgroundImg
-          src={backgroundImg}
-          alt="background_img"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-        />
+        <BackgroundImg src={backgroundImg} alt="background_img" />
       </PlayingContainer>
     </>
   );

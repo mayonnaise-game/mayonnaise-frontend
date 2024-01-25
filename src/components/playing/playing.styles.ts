@@ -18,10 +18,12 @@ export const BackgroundImg = styled(Image)`
   width: 100%;
   height: 100%;
   z-index: -1;
+  background-size: cover;
 `;
 
 export const PlayingContainer = styled(Box)`
   width: 100%;
+  hegith: 100dvh;
   display: flex;
   margin-top: 120px;
   justify-content: space-evenly;

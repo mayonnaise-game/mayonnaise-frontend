@@ -1,8 +1,8 @@
-import styled from "@emotion/styled";
-import { Box, Button, Snackbar } from "@mui/material";
-import backgroundImg from "@/src/assets/background_img.png";
-import Image from "next/image";
+"use client";
 
+import styled from "@emotion/styled";
+import { Box, Snackbar } from "@mui/material";
+import Image from "next/image";
 
 export const BackgroundImg = styled(Image)`
   position: absolute;

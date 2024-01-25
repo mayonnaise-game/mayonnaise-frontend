@@ -10,7 +10,7 @@ import axios from "axios";
 import { FormEvent } from "react";
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
-export default function GameStartBtn() {
+export default function GameStartForm() {
   const setLastMessageIndex = useSetRecoilState(LastMessageIndexState);
   const setUserUUID = useSetRecoilState(UserUUIDState);
   const router = useRouter();
@@ -37,7 +37,7 @@ export default function GameStartBtn() {
   return (
     <>
       <form onSubmit={onSubmit}>
-        <NameField placeholder="      이름을 입력하세요" name="name" />
+        <NameField placeholder="이름을 입력하세요" name="name" />
         <LandingButton type="submit" className={jua.className}>
           게임 시작
         </LandingButton>

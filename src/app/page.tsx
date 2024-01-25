@@ -7,7 +7,7 @@ import {
   InfoText,
   BackgroundImg,
 } from "@/src/components/home/home.styles";
-import GameStartBtn from "../components/home/GameStartBtn";
+import GameStartBtn from "../components/home/GameStartForm";
 import infoImage from "@/public/info_img.png";
 import backgroundImg from "@/public/background_img.png";
 

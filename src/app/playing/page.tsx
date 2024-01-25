@@ -64,13 +64,7 @@ export default function Playing() {
           hint2={data?.hint2}
         />
         <Chat />
-        <BackgroundImg
-          src={backgroundImg}
-          alt="background_img"
-          layout="fill"
-          objectFit="cover"
-          objectPosition="center"
-        />
+        <BackgroundImg src={backgroundImg} alt="background_img" />
       </PlayingContainer>
     </>
   );

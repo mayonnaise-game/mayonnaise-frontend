@@ -11,11 +11,12 @@ export const BackgroundImg = styled(Image)`
   width: 100%;
   height: 100%;
   z-index: -1;
+  background-size: cover;
 `;
 
 export const Container = styled(Box)`
   width: 100vh;
-  height: 100vh;
+  height: 90vh;
   margin: 20px auto;
   display: flex;
   flex-direction: column;

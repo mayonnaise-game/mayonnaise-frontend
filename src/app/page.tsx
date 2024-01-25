@@ -58,13 +58,7 @@ export default function Home() {
           </InfoText>
         </InfoBox>
       </Container>
-      <BackgroundImg
-        src={backgroundImg}
-        alt="background_img"
-        layout="fill"
-        objectFit="cover"
-        objectPosition="center"
-      />
+      <BackgroundImg src={backgroundImg} alt="background_img" />
     </main>
   );
 }

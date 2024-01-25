@@ -1,7 +1,7 @@
 "use client";
 
 import styled from "@emotion/styled";
-import { Box, Snackbar } from "@mui/material";
+import { Box, Snackbar, Button } from "@mui/material";
 import Image from "next/image";
 
 export const BackgroundImg = styled(Image)`
@@ -28,7 +28,8 @@ export const Title = styled(Box)`
   font-size: 30px;
 `;
 
-export const LandingButton = styled.button`
+export const LandingButton = styled(Button)`
+  margin: 10px;
   width: 100px;
   height: 30px;
   font-size: 18px;
@@ -41,8 +42,6 @@ export const LandingButton = styled.button`
     background-color: #c1a18a;
   }
 `;
-
-export const CopySnackBar = styled(Snackbar)``;
 
 export const InfoBox = styled(Box)`
   display: flex;

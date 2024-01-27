@@ -23,9 +23,9 @@ export const BackgroundImg = styled(Image)`
 
 export const PlayingContainer = styled(Box)`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - 120px);
   display: flex;
-  margin-top: 120px;
+  padding-top: 120px;
   justify-content: space-evenly;
 `;
 

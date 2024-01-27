@@ -23,7 +23,7 @@ export const BackgroundImg = styled(Image)`
 
 export const PlayingContainer = styled(Box)`
   width: 100%;
-  hegith: 100dvh;
+  height: 100vh;
   display: flex;
   margin-top: 120px;
   justify-content: space-evenly;

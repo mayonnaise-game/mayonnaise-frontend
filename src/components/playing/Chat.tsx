@@ -11,15 +11,15 @@ import {
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import axios from "axios";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { LastMessageIndexState, UserUUIDState } from "@/src/utils/atoms";
+import { LastMessageIndexState, UserUUIDState } from "../../utils/atoms";
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
 interface ChatData {
   index: number;
   chatData: string;
+  isCurrentUser: boolean;
   user: {
-    isCurrentUser: boolean;
     username: string;
   };
 }
@@ -105,7 +105,7 @@ export default function Chat() {
     <ChatContainer>
       <ChatBox ref={chatBoxRef}>
         {chats?.map((chat) => {
-          if (chat.user.isCurrentUser) {
+          if (chat.isCurrentUser) {
             return <MyComment key={chat.index}>{chat.chatData}</MyComment>;
           } else {
             return (

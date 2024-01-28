@@ -95,9 +95,11 @@ export default function Chat() {
   };
 
   const handleInputKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      PostChat();
-      setInputValue("");
+    if (e.nativeEvent.isComposing === false) {
+      if (e.key === "Enter") {
+        PostChat();
+        setInputValue("");
+      }
     }
   };
 
@@ -121,7 +123,7 @@ export default function Chat() {
         <ChatInput
           value={inputValue}
           onChange={handleInputChange}
-          onKeyDown={handleInputKeyPress}
+          onKeyPress={handleInputKeyPress}
         />
         <SubmitBtn onClick={handleButtonClick}>
           <SendRoundedIcon />

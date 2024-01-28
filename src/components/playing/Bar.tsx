@@ -1,4 +1,9 @@
-import { BarContainer, ParticipantList, UserStatus } from "./playing.styles";
+import {
+  BarContainer,
+  ParticipantList,
+  UserContainer,
+  UserStatus,
+} from "./playing.styles";
 import ListItem from "@mui/material/ListItem";
 import ListItemAvatar from "@mui/material/ListItemAvatar";
 import ListItemText from "@mui/material/ListItemText";
@@ -99,36 +104,38 @@ export default function Bar() {
         })}
       </ParticipantList>
 
-      {user && (
-        <UserStatus
-          secondaryAction={<ListItemText primary={user?.score + "점"} />}
-        >
-          <ListItemAvatar>
-            <Avatar
-              sx={{
-                backgroundColor:
-                  user?.currentRank === 0
-                    ? "#D5A11E"
-                    : user?.currentRank === 1
-                      ? "default"
-                      : user?.currentRank === 2
-                        ? "#CD7F32"
-                        : "#A3A3A3",
-              }}
-            >
-              {user?.currentRank < 3 ? (
-                <MilitaryTechRoundedIcon />
-              ) : (
-                <PersonRoundedIcon />
-              )}
-            </Avatar>
-          </ListItemAvatar>
-          <ListItemText
-            primary={user?.username}
-            secondary={"♥︎".repeat(user?.heart)}
-          />
-        </UserStatus>
-      )}
+      <UserContainer>
+        {user && (
+          <UserStatus
+            secondaryAction={<ListItemText primary={user?.score + "점"} />}
+          >
+            <ListItemAvatar>
+              <Avatar
+                sx={{
+                  backgroundColor:
+                    user?.currentRank === 0
+                      ? "#D5A11E"
+                      : user?.currentRank === 1
+                        ? "default"
+                        : user?.currentRank === 2
+                          ? "#CD7F32"
+                          : "#A3A3A3",
+                }}
+              >
+                {user?.currentRank < 3 ? (
+                  <MilitaryTechRoundedIcon />
+                ) : (
+                  <PersonRoundedIcon />
+                )}
+              </Avatar>
+            </ListItemAvatar>
+            <ListItemText
+              primary={user?.username}
+              secondary={"♥︎".repeat(user?.heart)}
+            />
+          </UserStatus>
+        )}
+      </UserContainer>
     </BarContainer>
   );
 }

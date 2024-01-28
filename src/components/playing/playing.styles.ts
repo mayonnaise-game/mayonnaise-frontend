@@ -75,14 +75,26 @@ export const BarContainer = styled(Card)`
   width: 250px;
   height: 700px;
   padding: 10px;
+  border-radius: 20px;
   box-sizing: border-box;
   position: relative;
   font-weight: bold;
+  background-color: #fff;
+  font-size: 15px;
+
   & li {
-    background-color: #f6e6cd;
+    width: 100%;
     padding: 5px;
     margin-bottom: 5px;
     border-radius: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  & .MuiListItemText-primary {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   & .MuiListItemText-secondary {
     font-size: 24px;
@@ -97,12 +109,15 @@ export const ParticipantList = styled(List)`
   overflow: scroll;
 `;
 
-export const UserStatus = styled(ListItem)`
+export const UserContainer = styled(List)`
   position: absolute;
-  bottom: 10px;
+  bottom: 0px;
   width: 230px;
-  border: 1px solid #80bcbd;
-  background-color: #f6e6cd;
+  border-radius: 20px;
+`;
+
+export const UserStatus = styled(ListItem)`
+  box-shadow: 1px 0px 15px 16px rgba(242, 242, 237, 0.75);
 `;
 
 // ImageNHint

@@ -1,5 +1,5 @@
 import Providers from "./Providers";
-import { jua } from "@/fonts";
+import { gmarket } from "@/fonts";
 
 export const metadata = {
   title: "마요네즈",
@@ -14,7 +14,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <Providers>
       <html lang="en">
-        <body className={jua.className} style={{ margin: "0" }}>
+        <body className={gmarket.className} style={{ margin: "0" }}>
           {children}
         </body>
       </html>

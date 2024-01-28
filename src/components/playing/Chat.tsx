@@ -11,7 +11,8 @@ import {
 import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import axios from "axios";
 import { useRecoilState, useRecoilValue } from "recoil";
-import { LastMessageIndexState, UserUUIDState } from "@/src/utils/atoms";
+import { LastMessageIndexState, UserUUIDState } from "../../utils/atoms";
+
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
@@ -123,7 +124,7 @@ export default function Chat() {
         <ChatInput
           value={inputValue}
           onChange={handleInputChange}
-          onKeyPress={handleInputKeyPress}
+          onKeyDown={handleInputKeyPress}
         />
         <SubmitBtn onClick={handleButtonClick}>
           <SendRoundedIcon />

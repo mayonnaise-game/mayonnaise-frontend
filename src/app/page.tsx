@@ -11,13 +11,13 @@ import GameStartBtn from "../components/home/GameStartForm";
 import infoImage from "@/public/info_img.png";
 import backgroundImg from "@/public/background_img.png";
 
-import { jua, pretendard } from "./fonts/font";
+import { gmarket, pretendard } from "./fonts/font";
 
 export default function Home() {
   return (
     <main className={pretendard.className}>
       <Container>
-        <Title className={jua.className}>
+        <Title className={gmarket.className}>
           마요네즈 :마성의 요리 네이밍 퀴즈
         </Title>
         <InfoBox>

@@ -21,7 +21,7 @@
     ],
     "paths": {
       "@/*": ["./*"], //@을 사용하면 최상단으로 이동
-      "@/fonts" : ["./src/app/fonts/font.ts"],
+      "@/fonts": ["./src/app/fonts/font.ts"]
     }
   },
   "include": [

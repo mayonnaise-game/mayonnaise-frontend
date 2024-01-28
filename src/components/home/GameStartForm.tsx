@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { LandingButton } from "./home.styles";
-import { jua } from "@/src/app/fonts/font";
+import { gmarket } from "@/src/app/fonts/font";
 import { NameField } from "./home.styles";
 import { useSetRecoilState } from "recoil";
 import { LastMessageIndexState, UserUUIDState } from "@/src/utils/atoms";
@@ -38,7 +38,7 @@ export default function GameStartForm() {
     <>
       <form onSubmit={onSubmit}>
         <NameField placeholder="이름을 입력하세요" name="name" />
-        <LandingButton type="submit" className={jua.className}>
+        <LandingButton type="submit" className={gmarket.className}>
           게임 시작
         </LandingButton>
       </form>

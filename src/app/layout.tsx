@@ -1,5 +1,5 @@
-import RecoilRootProvider from "./RecoilRootProvider";
-import { jua } from "@/fonts";
+import Providers from "./Providers";
+import { gmarket } from "@/fonts";
 
 export const metadata = {
   title: "마요네즈",
@@ -12,12 +12,12 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <RecoilRootProvider>
+    <Providers>
       <html lang="en">
-        <body className = {jua.className} style={{ margin: "0" }}>
+        <body className={gmarket.className} style={{ margin: "0" }}>
           {children}
         </body>
       </html>
-    </RecoilRootProvider>
+    </Providers>
   );
 }

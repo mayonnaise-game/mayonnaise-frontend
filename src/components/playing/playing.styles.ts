@@ -204,7 +204,7 @@ export const MyComment = styled.div`
 export const Comments = styled.div`
   border-radius: 25px 25px 25px 10px;
   max-width: 80%;
-  min-height: 46px;
+  min-height: 63px;
   padding: 10px 20px 5px;
   margin-bottom: 10px;
   align-self: flex-start;

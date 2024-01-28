@@ -18,8 +18,8 @@ const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 interface ChatData {
   index: number;
   chatData: string;
+  isCurrentUser: boolean;
   user: {
-    isCurrentUser: boolean;
     username: string;
   };
 }
@@ -95,9 +95,11 @@ export default function Chat() {
   };
 
   const handleInputKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
-    if (e.key === "Enter") {
-      PostChat();
-      setInputValue("");
+    if (e.nativeEvent.isComposing === false) {
+      if (e.key === "Enter") {
+        PostChat();
+        setInputValue("");
+      }
     }
   };
 
@@ -105,7 +107,7 @@ export default function Chat() {
     <ChatContainer>
       <ChatBox ref={chatBoxRef}>
         {chats?.map((chat) => {
-          if (chat.user.isCurrentUser) {
+          if (chat.isCurrentUser) {
             return <MyComment key={chat.index}>{chat.chatData}</MyComment>;
           } else {
             return (
@@ -121,7 +123,7 @@ export default function Chat() {
         <ChatInput
           value={inputValue}
           onChange={handleInputChange}
-          onKeyDown={handleInputKeyPress}
+          onKeyPress={handleInputKeyPress}
         />
         <SubmitBtn onClick={handleButtonClick}>
           <SendRoundedIcon />

@@ -156,11 +156,14 @@ export const ChatContainer = styled(Card)`
   width: 300px;
   height: 700px;
   box-sizing: border-box;
+  border-radius: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  background-color: white;
+  background-color: #fff;
+  font-size: 15px;
+  box-shadow: 1px -96px 41px -42px rgba(242, 242, 237, 0.75) inset;
 `;
 export const ChatBox = styled(Box)`
   width: 100%;
@@ -169,49 +172,60 @@ export const ChatBox = styled(Box)`
   flex-direction: column;
   overflow: scroll;
 `;
-export const MyComment = styled(Card)`
-  border-radius: 20px;
+export const MyComment = styled.div`
+  border-radius: 25px 25px 10px 25px;
   max-width: 80%;
   min-height: 46px;
   box-sizing: border-box;
   padding: 15px;
   margin-bottom: 10px;
-  background-color: #fcfce8;
+  background-color: #fcfcdc;
   align-self: flex-end;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 `;
-export const Comments = styled(Card)`
-  border-radius: 20px;
+
+export const Comments = styled.div`
+  border-radius: 25px 25px 25px 10px;
   max-width: 80%;
   min-height: 46px;
-  padding: 15px;
+  padding: 10px 20px 5px;
   margin-bottom: 10px;
   align-self: flex-start;
-  background-color: rgb(249, 247, 201);
+  background-color: #f2f2ed;
+
   > .name {
-    color: rgba(0, 0, 0, 0.4);
+    color: rgba(0, 0, 0, 0.25);
     font-weight: bold;
     font-size: 14px;
+    margin-bottom: 4px;
   }
   > .content {
     margin-left: 3px;
     margin-top: 3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 `;
-export const InputContainer = styled(Box)`
+export const InputContainer = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: 5px;
+  background-color: #fff;
+  border-radius: 20px;
 `;
 export const ChatInput = styled.input`
   width: 80%;
   height: 40px;
   padding-left: 10px;
   font-size: 16px;
-  background-color: #fcfce8;
-  border-radius: 5px;
+  background-color: #fff;
   border: 0px;
+  border-radius: 20px;
   outline: none;
 `;
 export const SubmitBtn = styled(IconButton)``;

@@ -12,7 +12,7 @@ import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import axios from "axios";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { LastMessageIndexState, UserUUIDState } from "../../utils/atoms";
-import { gmarket, pretendard } from "@/src/app/fonts/font";
+
 
 const BASE_URL = process.env.NEXT_PUBLIC_DEV_URL;
 
@@ -106,7 +106,7 @@ export default function Chat() {
 
   return (
     <ChatContainer>
-      <ChatBox ref={chatBoxRef} className={pretendard.className}>
+      <ChatBox ref={chatBoxRef}>
         {chats?.map((chat) => {
           if (chat.isCurrentUser) {
             return <MyComment key={chat.index}>{chat.chatData}</MyComment>;

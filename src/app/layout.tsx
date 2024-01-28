@@ -1,4 +1,4 @@
-import RecoilRootProvider from "./RecoilRootProvider";
+import Providers from "./Providers";
 import { jua } from "@/fonts";
 
 export const metadata = {
@@ -12,12 +12,12 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <RecoilRootProvider>
+    <Providers>
       <html lang="en">
-        <body className = {jua.className} style={{ margin: "0" }}>
+        <body className={jua.className} style={{ margin: "0" }}>
           {children}
         </body>
       </html>
-    </RecoilRootProvider>
+    </Providers>
   );
 }

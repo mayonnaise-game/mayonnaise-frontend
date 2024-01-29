@@ -233,7 +233,7 @@ export const InputContainer = styled.div`
   background-color: #fff;
   border-radius: 20px;
 `;
-export const ChatInput = styled.input`
+export const Chat = styled.input`
   width: 80%;
   height: 40px;
   padding-left: 10px;

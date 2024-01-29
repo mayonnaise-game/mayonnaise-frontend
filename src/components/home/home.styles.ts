@@ -1,65 +1,66 @@
 "use client";
 
 import styled from "@emotion/styled";
-import { Box, Button } from "@mui/material";
 import Image from "next/image";
-
-export const BackgroundImg = styled(Image)`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
-  background-size: cover;
-`;
+import { Box, Button } from "@mui/material";
+import { gmarket } from "@/src/app/fonts/font";
 
 export const Container = styled(Box)`
   width: 100vh;
-  height: 90vh;
-  margin: 20px auto;
+  height: calc(100vh - 200px);
+  margin: 100px auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
 export const Title = styled(Box)`
+  width: 500px;
+  height: 80px;
+  background-color: #fef8e3;
+  color: #7e6758;
+  line-height: 80px;
   text-align: center;
   font-weight: bold;
   font-size: 30px;
+  border-radius: 40px;
+  box-shadow: 0cap 3px 3px #fceac4;
 `;
 
 export const InfoBox = styled(Box)`
+  width: 900px;
+  border-radius: 20px;
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
+  background-color: #fcfcfa;
+  box-shadow: 0px 5px 5px #e3e8ee;
   gap: 20px;
-  padding: 80px;
+  padding: 30px 20px;
+  margin: 30px 0;
 `;
 
 export const InfoText = styled(Box)`
-  width: 600px;
+  font-family: gmarket;
+  width: 630px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  font-weight: bold;
-  gap: 2px > p {
-    font-weight: bold;
-    text-align: center;
+  /* background-color: #f2f6fa; */
+  border: 1px dashed #e3e8ee;
+  padding: 20px 10px;
+
+  > b {
+    margin-left: 35px;
+    font-size: 21px;
+    font-weight: 500;
   }
-  > div {
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: start;
-    gap: 30px;
-    margin-top: 15px;
+  li {
+    line-height: 28px;
   }
-  > p1 {
-    align-self: flex-start;
-    font-weight: normal;
-    font-size: 12px;
-    color: #606060;
+  li > b {
+    display: inline;
+    box-shadow: inset 0 -10px 0 #fceac4;
+    font-weight: 500;
   }
 `;
 
@@ -72,26 +73,39 @@ export const InfoImage = styled(Box)`
   font-size: 15px;
 `;
 
+export const NameForm = styled.form`
+  width: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f8f9f9;
+  border: 1px solid #f0f0f0;
+  border-radius: 40px;
+  padding-left: 20px;
+  margin-top: 10px;
+`;
+
 export const LandingButton = styled(Button)`
   margin: 10px;
   width: 100px;
-  height: 30px;
-  font-size: 18px;
-  color: black;
-  background-color: #d1b19a;
+  border-radius: 30px;
+  font-size: 16px;
+  color: #c9ab99;
+  background-color: #fff;
   border: none;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  box-shadow: 0px 2.5px 2.5px rgba(0, 0, 0, 0.25);
   cursor: pointer;
-  &:hover {
-    background-color: #c1a18a;
-  }
 `;
 
 export const NameField = styled.input`
-  width: 300px;
+  width: 180px;
   height: 30px;
-  background-color: white;
+  font-size: 16px;
+  font-family: gmarket;
+  background-color: #f8f9f9;
   color: #606060;
-  box-shadow: inset 1px 1px 2px rgba(0, 0, 0, 0.25);
+  border: 0px;
+  border-radius: 40px;
+  outline: none;
   border: none;
 `;

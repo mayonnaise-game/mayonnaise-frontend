@@ -3,7 +3,6 @@ import Modal from "@mui/material/Modal";
 import Link from "next/link";
 import axios from "axios";
 import ExitToAppRoundedIcon from "@mui/icons-material/ExitToAppRounded";
-import backgroundImg from "@/public/background_img.png";
 import {
   ScoreList,
   Title,
@@ -13,7 +12,6 @@ import {
   BackButton,
   MessageAndButtonBox,
   ButtonBox,
-  BackgroundImg,
 } from "@/src/components/leaderboard/leaderboard.styles";
 import EmojiEventsRoundedIcon from "@mui/icons-material/EmojiEventsRounded";
 import { HeaderExitBtn } from "../playing/playing.styles";
@@ -127,13 +125,6 @@ export default function LeaderBoardModal({ isDead }: LeaderBoardModalProps) {
               </ButtonBox>
             </MessageAndButtonBox>
           )}
-          <BackgroundImg
-            src={backgroundImg}
-            alt="background_img"
-            layout="fill"
-            objectFit="cover"
-            objectPosition="center"
-          />
         </Container>
       </Modal>
     </div>

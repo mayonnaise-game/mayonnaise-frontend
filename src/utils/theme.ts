@@ -11,7 +11,7 @@ export const MayoTheme = createTheme({
       contrastText: "#fff",
     },
     background: {
-      default: "#f2f2ed",
+      default: "#fffcf5",
       paper: "#FFF",
     },
   },
@@ -42,6 +42,7 @@ export const MayoTheme = createTheme({
       styleOverrides: {
         root: {
           fontFamily: "Gmarket",
+          backgroundColor: "#F2F6FA",
         },
       },
     },

@@ -15,17 +15,27 @@ export default function Header({ answerBlankData, start }: HeaderProps) {
 
   useEffect(() => {
     if (answerBlankData) {
+      setLetterLen(answerBlankData.split(" ").join("").length);
+    }
+  }, [answerBlankData]);
+
+
+  useEffect(() => {
+    // 1초마다 시간 계산 업데이트
+    const intervalSecond = setInterval(() => {
       // 주어진 시작 시간
       const startTime = new Date(start);
       // 현재 시간
       const currentTime = new Date();
       // 차이 계산
       setSeconds(
-        Math.floor((currentTime.getTime() - startTime.getTime()) / 1000)
+        120-Math.floor((currentTime.getTime() - startTime.getTime()) / 1000)
       );
-      setLetterLen(answerBlankData.split(" ").join("").length);
-    }
-  }, [answerBlankData, start]);
+    }, 1000);
+
+    // 컴포넌트가 언마운트되면 clearInterval 호출
+    return () => clearInterval(intervalSecond);
+  }, [start]);
 
   const [isDead, setIsDead] = useState<boolean>(false); // 게임이 끝났는지 여부
 

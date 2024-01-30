@@ -1,6 +1,7 @@
 import styled from "@emotion/styled";
 import {
   Box,
+  Button,
   Card,
   IconButton,
   List,
@@ -35,17 +36,19 @@ export const HeaderContainer = styled(Box)`
   top: 0;
   z-index: 999;
   width: 100%;
-  height: 90px;
-  background-color: #f6e6cd;
+  height: 100px;
+  /* background-color: #fcfcfa; */
+  box-shadow: 0px 3px 3px #edeae4;
   display: flex;
   justify-content: space-around;
   align-items: center;
+  color: #606060;
 `;
 export const HeaderTime = styled(Box)`
   width: 50px;
   height: 50px;
   border-radius: 50px;
-  border: 2px solid #fff;
+  background-color: #fff;
   line-height: 50px;
   text-align: center;
 `;
@@ -55,19 +58,29 @@ export const HeaderHint = styled(Box)`
   justify-content: center;
   align-items: center;
   > .label {
+    color: #606060;
     letter-spacing: 2px;
-    font-size: 16px;
-    color: #2c2c2c;
+    font-size: 12px;
     font-weight: bold;
   }
   > .content {
+    color: #606060;
     letter-spacing: 3px;
     font-size: 32px;
     color: black;
   }
 `;
-export const HeaderExitBtn = styled(IconButton)`
-  color: #fff;
+
+export const HeaderExitBtn = styled(Button)`
+  margin: 10px;
+  width: 100px;
+  border-radius: 30px;
+  font-size: 16px;
+  color: #c9ab99;
+  background-color: #fff;
+  border: none;
+  box-shadow: 0px 2.5px 2.5px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
 `;
 
 // Bar
@@ -79,7 +92,8 @@ export const BarContainer = styled(Card)`
   box-sizing: border-box;
   position: relative;
   font-weight: bold;
-  background-color: #fff;
+  background-color: #fcfcfa;
+  box-shadow: 0px 5px 5px #e3e8ee;
   font-size: 15px;
 
   & li {
@@ -117,7 +131,7 @@ export const UserContainer = styled(List)`
 `;
 
 export const UserStatus = styled(ListItem)`
-  box-shadow: 1px 0px 15px 16px rgba(242, 242, 237, 0.75);
+  box-shadow: 0px 0px 5px #e3e8ee;
 `;
 
 // ImageNHint
@@ -176,9 +190,9 @@ export const ChatContainer = styled(Card)`
   flex-direction: column;
   justify-content: space-between;
   padding: 15px;
-  background-color: #fff;
+  background-color: #fcfcfa;
   font-size: 15px;
-  box-shadow: 1px -96px 41px -42px rgba(242, 242, 237, 0.75) inset;
+  box-shadow: 0px 5px 5px #e3e8ee;
 `;
 export const ChatBox = styled(Box)`
   width: 100%;
@@ -194,7 +208,8 @@ export const MyComment = styled.div`
   box-sizing: border-box;
   padding: 15px;
   margin-bottom: 10px;
-  background-color: #fcfcdc;
+  background-color: #fef8e3;
+  box-shadow: 0cap 2px 2px #fceac4;
   align-self: flex-end;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -208,7 +223,8 @@ export const Comments = styled.div`
   padding: 10px 20px 5px;
   margin-bottom: 10px;
   align-self: flex-start;
-  background-color: #f2f2ed;
+  background-color: #fcfcfa;
+  box-shadow: 0px 2px 2px #e3e8ee;
 
   > .name {
     color: rgba(0, 0, 0, 0.25);
@@ -230,15 +246,16 @@ export const InputContainer = styled.div`
   align-items: center;
   justify-content: space-between;
   margin-top: 5px;
-  background-color: #fff;
+  background-color: #f8f9f9;
   border-radius: 20px;
+  border: 1px solid #f0f0f0;
 `;
 export const ChatInput = styled.input`
   width: 80%;
   height: 40px;
   padding-left: 10px;
   font-size: 16px;
-  background-color: #fff;
+  background-color: #f8f9f9;
   border: 0px;
   border-radius: 20px;
   outline: none;

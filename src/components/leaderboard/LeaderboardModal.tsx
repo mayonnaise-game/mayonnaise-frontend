@@ -65,7 +65,7 @@ export default function LeaderBoardModal({ isDead }: LeaderBoardModalProps) {
   return (
     <div>
       <HeaderExitBtn onClick={handleOpen}>
-        <ExitToAppRoundedIcon />
+        나가기 <ExitToAppRoundedIcon />
       </HeaderExitBtn>
 
       <Modal

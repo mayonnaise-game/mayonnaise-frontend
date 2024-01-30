@@ -45,7 +45,7 @@ export default function Chat() {
           withCredentials: true,
         }
       );
-      console.log(res.data);
+      // console.log(res.data);
       // setLastid(res.data.data.messageIndex);
     } catch (err) {
       console.error(err);
@@ -61,7 +61,7 @@ export default function Chat() {
         }
       );
       setChats(res.data.data);
-      console.log(res.data.data);
+      // console.log(res.data.data);
     } catch (err) {
       console.error(err);
     }
